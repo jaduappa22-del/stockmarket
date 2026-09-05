@@ -57,8 +57,9 @@ with col_right:
   )
   st.markdown(
       '<p style="font-size: 11px; color: #64748b;">💡 <b>입력 팁</b>: 미국은'
-      " 심볼 그대로 (예: <code>MSFT</code>), 국내 주식은 6자리 뒤에'
-      " <code>.KS</code>(코스피) 또는 <code>.KQ</code>(코스닥)를 붙여주세요.</p>",
+      " 심볼 그대로 (예: <code>MSFT</code>), 국내 주식은 6자리 뒤에"
+      " <code>.KS</code>(코스피) 또는 <code>.KQ</code>(코스닥)를"
+      " 붙여주세요.</p>",
       unsafe_allow_html=True,
   )
 
@@ -176,14 +177,13 @@ with col_left:
         )
   st.markdown("</div>", unsafe_allow_html=True)
 
-  # 3. [신규 고도화] 관심 종목 라이브 포트폴리오 및 트렌드/거래량 그래프 시각화
+  # 3. 관심 종목 라이브 포트폴리오 및 트렌드/거래량 그래프 시각화
   st.markdown(
       '<div class="card"><div class="sub-header">⭐ AFK 오피셜 관심 종목 포트폴리오'
       " 및 트렌드/거래량 분석</div>",
       unsafe_allow_html=True,
   )
 
-  # 개별 종목 선택 셀렉트박스 추가 (차트로 상세히 볼 종목 선택)
   selected_stock = st.selectbox(
       "상세 트렌드 및 거래량 차트를 확인할 종목 선택",
       st.session_state.watchlist,
@@ -209,8 +209,8 @@ with col_left:
         )
     except:
       watchlist_data.append(
-            {"종목 코드": ticker, "현재가": "조회 실패", "전일 대비 (%)": "-"}
-        )
+          {"종목 코드": ticker, "현재가": "조회 실패", "전일 대비 (%)": "-"}
+      )
 
   if watchlist_data:
     st.dataframe(
@@ -225,13 +225,11 @@ with col_left:
 
   try:
     chart_t = yf.Ticker(selected_stock)
-    chart_hist = chart_t.history(period="1mo")  # 최근 1개월 데이터
+    chart_hist = chart_t.history(period="1mo")
     if not chart_hist.empty:
-      # 스트림릿 내장 라인 차트로 주가 트렌드 표시
       st.markdown("**• 최근 1개월 종가(Close) 트렌드**")
       st.line_chart(chart_hist["Close"])
 
-      # 거래량 바(Bar) 차트 표시
       st.markdown("**• 최근 1개월 거래량(Volume) 추이**")
       st.bar_chart(chart_hist["Volume"])
     else:
