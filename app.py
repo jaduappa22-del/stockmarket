@@ -128,7 +128,7 @@ with col_left:
   )
   st.markdown(
       '<p style="font-size: 13px; color: #64748b; margin-bottom: 12px;">💡'
-      " 외국인 수급에 직결되는 <b>원/달러 환율 기준선(1,350원)</b>과 증시'
+      " 외국인 수급에 직결되는 <b>원/달러 환율 기준선(1,350원)</b>과 증시"
       " 밸류에이션 척도인 <b>미국 10년물 국채금리</b>를 모니터링합니다.</p>",
       unsafe_allow_html=True,
   )
@@ -171,12 +171,12 @@ with col_left:
     if usd_krw_val > 0:
       if usd_krw_val >= 1350:
         st.markdown(
-            f'<div class="alert-box">🚨 [환율 리스크 경보] 현재 원/달러 환율({usd_krw_val:.2f원})이 1,350원을 상회하여 외국인 수급에 부정적 영향이 우려됩니다.</div>',
+            f'<div class="alert-box">🚨 [환율 리스크 경보] 현재 원/달러 환율({usd_krw_val:.2f}원)이 1,350원을 상회하여 외국인 수급에 부정적 영향이 우려됩니다.</div>',
             unsafe_allow_html=True,
         )
       else:
         st.markdown(
-            f'<div class="safe-box">✨ [환율 안정권] 현재 원/달러 환율({usd_krw_val:.2f원})은 1,350원 미만으로 안정세를 보이고 있습니다.</div>',
+            f'<div class="safe-box">✨ [환율 안정권] 현재 원/달러 환율({usd_krw_val:.2f}원)은 1,350원 미만으로 안정세를 보이고 있습니다.</div>',
             unsafe_allow_html=True,
         )
 
